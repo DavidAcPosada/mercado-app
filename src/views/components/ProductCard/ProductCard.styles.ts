@@ -46,3 +46,11 @@ export const StyledTitle = styled(Typography)`
 export const StyledPum = styled(Typography)`
   ${tw`font-main font-normal text-[14px] text-[#A4A4A4]`}
 `;
+
+export const StyledQuantityWrapper = styled.div`
+  ${tw`w-full h-[48px] rounded-full bg-[#F2F2F2] shadow-[inset 0 3px 6px rgba(0, 0, 0, 0.16)] text-[28px] font-head font-medium flex items-center justify-between text-gray-700`}
+`;
+
+export const StyledQuantityButton = styled.button`
+  ${tw`h-full rounded-full w-[48px] bg-secondary shadow-secondary text-white flex items-center justify-center`}
+`;

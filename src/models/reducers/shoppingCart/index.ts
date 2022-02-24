@@ -11,7 +11,8 @@ const useShoppingCartReducers = () => {
   const { shoppingCartInitialState } = useShoppingCartInitialState();
 
   const { useShoppingCartTypes } = useTypes();
-  const { UPDATE_SHOPPING_CART, ADD_PRODUCT } = useShoppingCartTypes();
+  const { UPDATE_SHOPPING_CART, ADD_PRODUCT, DELETE_SHOPPING_CART } =
+    useShoppingCartTypes();
 
   type ShoppingCartState = typeof shoppingCartInitialState;
 
@@ -25,6 +26,9 @@ const useShoppingCartReducers = () => {
     [ADD_PRODUCT](state: ShoppingCartState, action: Action<Product[]>) {
       // @ts-ignore
       return [...state, action.payload];
+    },
+    [DELETE_SHOPPING_CART]() {
+      return [];
     },
   });
 

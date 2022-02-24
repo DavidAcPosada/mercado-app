@@ -7,6 +7,7 @@ export const Chip = lazy(() => import('./Chip'));
 export const Price = lazy(() => import('./Price'));
 export const ProductCard = lazy(() => import('./ProductCard'));
 export const IconButton = lazy(() => import('./IconButton'));
+export const ShoppingCartPopup = lazy(() => import('./ShoppingCartPopup'));
 export const Typography = lazy(() => import('./Typography'));
 
 const useComponents = () => {
@@ -18,6 +19,7 @@ const useComponents = () => {
     Price,
     ProductCard,
     IconButton,
+    ShoppingCartPopup,
     Typography,
   };
 };

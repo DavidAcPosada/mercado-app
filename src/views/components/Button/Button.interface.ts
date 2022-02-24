@@ -1,4 +1,4 @@
 export interface ButtonProps {
-  icon: any;
+  icon?: any;
   onClick?: any;
 }

@@ -2,7 +2,7 @@ import styled from 'styled-components/macro';
 import tw from 'twin.macro';
 
 export const StyledButton = styled.button`
-  ${tw`w-full h-[48px] bg-tercery shadow-tercery rounded-full text-white font-head font-medium flex items-center p-2`}
+  ${tw`w-full h-[48px] bg-tercery hover:bg-[#DEAC18] transition-all shadow-tercery rounded-full text-white font-head font-medium flex items-center p-2`}
   & span {
     ${tw`w-full block text-center`}
   }

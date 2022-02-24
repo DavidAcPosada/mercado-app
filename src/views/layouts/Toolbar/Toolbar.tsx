@@ -1,4 +1,4 @@
-import { FiShoppingCart } from 'react-icons/fi';
+import { MdShoppingCart, MdOutlineShoppingCart } from 'react-icons/md';
 import { FC } from 'react';
 
 import useControllers from 'controllers';
@@ -21,11 +21,16 @@ import {
 
 const Toolbar: FC = ({ children }) => {
   const { useComponents } = useViews();
-  const { IconButton, Badge } = useComponents();
+  const { IconButton, Badge, ShoppingCartPopup } = useComponents();
 
-  const { useGeneralHooks } = useControllers();
+  const { useGeneralHooks, useComponentsHooks } = useControllers();
   const { useShoppingCartController } = useGeneralHooks();
-  const { shoppingCart, summary } = useShoppingCartController();
+  const { summary, counting } = useShoppingCartController();
+
+  const { useLayoutsControllers } = useComponentsHooks();
+  const { useToolbarLayoutController } = useLayoutsControllers();
+  const { anchorEl, handleCloseMenu, handleOpenMenu } =
+    useToolbarLayoutController();
 
   return (
     <StyledWrapper>
@@ -46,11 +51,18 @@ const Toolbar: FC = ({ children }) => {
               </StyledSummary>
             </StyledSummaryWrapper>
             <StyledDivider />
-            <Badge value={shoppingCart.length}>
-              <IconButton>
-                <FiShoppingCart />
+
+            {/* Shopping Cart button */}
+            <Badge value={counting}>
+              <IconButton onClick={handleOpenMenu}>
+                {counting > 0 ? <MdShoppingCart /> : <MdOutlineShoppingCart />}
               </IconButton>
             </Badge>
+            <ShoppingCartPopup
+              open={!!anchorEl}
+              anchorEl={anchorEl}
+              onClose={handleCloseMenu}
+            />
           </StyledTotalWrapper>
         </StyledToolbar>
       </StyledAppbar>

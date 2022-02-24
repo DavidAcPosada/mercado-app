@@ -1,7 +1,8 @@
-import useControllers from 'controllers';
+import { MdOutlineShoppingCart } from 'react-icons/md';
+import { FiPlus, FiMinus } from 'react-icons/fi';
 import { FC } from 'react';
-import { FiShoppingCart } from 'react-icons/fi';
 
+import useControllers from 'controllers';
 import useViews from 'views';
 
 import { ProductCardProps } from './ProductCard.interface';
@@ -15,15 +16,20 @@ import {
   StyledTextWrapper,
   StyledTitle,
   StyledPum,
+  StyledQuantityWrapper,
+  StyledQuantityButton,
 } from './ProductCard.styles';
 
 const ProductCard: FC<ProductCardProps> = ({ info }) => {
   const { useComponents } = useViews();
   const { Price, Button } = useComponents();
 
-  const { useGeneralHooks } = useControllers();
+  const { useGeneralHooks, useComponentsHooks } = useControllers();
   const { useShoppingCartController } = useGeneralHooks();
-  const { handleAddProduct } = useShoppingCartController();
+  const { handleAddProduct, handleRemoveProduct } = useShoppingCartController();
+
+  const { useProductCard } = useComponentsHooks();
+  const { quantity } = useProductCard(info.id);
 
   return (
     <StyledCard>
@@ -48,9 +54,24 @@ const ProductCard: FC<ProductCardProps> = ({ info }) => {
         <StyledPum as='p'>{info.pum[0]}</StyledPum>
       </StyledTextWrapper>
       <div>
-        <Button icon={<FiShoppingCart />} onClick={handleAddProduct(info)}>
-          Agregar al carrito
-        </Button>
+        {quantity > 0 ? (
+          <StyledQuantityWrapper>
+            <StyledQuantityButton onClick={handleRemoveProduct(info)}>
+              <FiMinus />
+            </StyledQuantityButton>
+            {quantity}
+            <StyledQuantityButton onClick={handleAddProduct(info)}>
+              <FiPlus />
+            </StyledQuantityButton>
+          </StyledQuantityWrapper>
+        ) : (
+          <Button
+            icon={<MdOutlineShoppingCart />}
+            onClick={handleAddProduct(info)}
+          >
+            Agregar al carrito
+          </Button>
+        )}
       </div>
     </StyledCard>
   );

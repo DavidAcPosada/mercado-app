@@ -1,9 +1,9 @@
-import { FC } from 'react';
+import { ButtonHTMLAttributes, FC } from 'react';
 
 import { StyledButton } from './IconButton.styles';
 
-const IconButton: FC = ({ children }) => {
-  return <StyledButton>{children}</StyledButton>;
+const IconButton: FC<ButtonHTMLAttributes<any>> = ({ children, ...props }) => {
+  return <StyledButton {...props}>{children}</StyledButton>;
 };
 
 export default IconButton;

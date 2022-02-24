@@ -7,7 +7,7 @@ const Button: FC<ButtonProps> = ({ children, icon, ...props }) => {
   return (
     <StyledButton {...props}>
       <span>{children}</span>
-      <StyledIconWrapper>{icon}</StyledIconWrapper>
+      {icon && <StyledIconWrapper>{icon}</StyledIconWrapper>}
     </StyledButton>
   );
 };

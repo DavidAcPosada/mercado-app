@@ -12,7 +12,7 @@ export const StyledAppbar = styled.div`
 `;
 
 export const StyledToolbar = styled.div`
-  ${tw`container mx-auto flex justify-between items-center h-full`}
+  ${tw`container mx-auto flex justify-between items-center h-full px-4`}
 `;
 
 export const StyledBrandImage = styled.img`

@@ -7,6 +7,7 @@ export interface Product {
   description: string;
   pum: Array<string>;
   image_medium_url: string;
+  image_small_url: string;
 }
 
 export interface ProductResponse {
