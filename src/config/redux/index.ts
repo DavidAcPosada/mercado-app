@@ -22,7 +22,6 @@ const useStoreConfig = () => {
   const persistConfig = {
     key: 'root',
     storage: storage,
-    whitelist: [],
   };
 
   const persistReduce = persistReducer(persistConfig, reducers);

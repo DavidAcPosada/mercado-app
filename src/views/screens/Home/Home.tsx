@@ -1,7 +1,7 @@
 import useControllers from 'controllers';
 import useViews from 'views';
 
-import { StyledWrapper } from './Home.styles';
+import { StyledWrapper, StyledCardsWrapper, StyledTitle } from './Home.styles';
 
 const Home = () => {
   const { useScreenHooks } = useControllers();
@@ -13,9 +13,12 @@ const Home = () => {
 
   return (
     <StyledWrapper>
-      {products.map((value) => (
-        <ProductCard key={value.id} />
-      ))}
+      <StyledTitle as='h3'>Productos destacados</StyledTitle>
+      <StyledCardsWrapper>
+        {products.map((value) => (
+          <ProductCard key={value.id} info={value} />
+        ))}
+      </StyledCardsWrapper>
     </StyledWrapper>
   );
 };

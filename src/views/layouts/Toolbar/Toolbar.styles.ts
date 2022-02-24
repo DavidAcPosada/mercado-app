@@ -7,7 +7,7 @@ export const StyledWrapper = styled.main`
 `;
 
 export const StyledAppbar = styled.div`
-  ${tw`w-full h-[80px] bg-white fixed top-0`}
+  ${tw`w-full h-[80px] bg-white fixed top-0 z-10`}
   box-shadow: 0 5px 16px rgba(0, 0, 0, .05);
 `;
 
@@ -37,4 +37,8 @@ export const StyledTypography = styled(Typography)`
 
 export const StyledSummary = styled(Typography)`
   ${tw`text-primary text-[20px] font-medium`}
+`;
+
+export const StyledFooter = styled.footer`
+  ${tw`w-full bg-black text-white font-head font-medium text-[18px] text-right py-3`}
 `;

@@ -59,6 +59,11 @@ module.exports = {
         '6xl': '4rem',
         '7xl': '5rem',
       },
+      boxShadow: {
+        primary: '0 3px 6px rgba(242, 136, 75, 0.27)',
+        tercery: '0 3px 4px rgba(242, 188, 27, 0.35)',
+        complementary: '0 2px 4px rgba(242, 75, 106, 0.43)',
+      },
     },
   },
   plugins: [

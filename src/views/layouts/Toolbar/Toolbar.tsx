@@ -1,6 +1,7 @@
 import { FiShoppingCart } from 'react-icons/fi';
 import { FC } from 'react';
 
+import useControllers from 'controllers';
 import useViews from 'views';
 
 import Logo from 'assets/img/logo.png';
@@ -15,11 +16,16 @@ import {
   StyledSummaryWrapper,
   StyledTypography,
   StyledSummary,
+  StyledFooter,
 } from './Toolbar.styles';
 
 const Toolbar: FC = ({ children }) => {
   const { useComponents } = useViews();
-  const { IconButton } = useComponents();
+  const { IconButton, Badge } = useComponents();
+
+  const { useGeneralHooks } = useControllers();
+  const { useShoppingCartController } = useGeneralHooks();
+  const { shoppingCart, summary } = useShoppingCartController();
 
   return (
     <StyledWrapper>
@@ -36,17 +42,22 @@ const Toolbar: FC = ({ children }) => {
                 <span className='mr-1'>$</span>
                 {Intl.NumberFormat('de', {
                   minimumFractionDigits: 2,
-                }).format(0)}
+                }).format(summary)}
               </StyledSummary>
             </StyledSummaryWrapper>
             <StyledDivider />
-            <IconButton>
-              <FiShoppingCart />
-            </IconButton>
+            <Badge value={shoppingCart.length}>
+              <IconButton>
+                <FiShoppingCart />
+              </IconButton>
+            </Badge>
           </StyledTotalWrapper>
         </StyledToolbar>
       </StyledAppbar>
       {children}
+      <StyledFooter>
+        <div className='container mx-auto'>Hecho por David Acevedo</div>
+      </StyledFooter>
     </StyledWrapper>
   );
 };

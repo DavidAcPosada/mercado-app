@@ -1,4 +1,5 @@
 import { Product } from './products';
+import { ShoppingCartElement } from './shoppingCart';
 
 export interface Action<T> {
   type: string;
@@ -7,4 +8,5 @@ export interface Action<T> {
 
 export interface GlobalState {
   products: Product[];
+  shoppingCart: ShoppingCartElement[];
 }
