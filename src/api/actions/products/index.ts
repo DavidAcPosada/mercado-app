@@ -18,12 +18,15 @@ const useProductActions = () => {
     () => async (dispatch: Dispatch<Action<Product[]>>) => {
       try {
         const response = await getProductsService();
-        const formattedData = _.map(response.data, (value) => {
-          return {
-            id: value.id,
-            ...value.attributes,
-          };
-        });
+        const formattedData = _.map(
+          response.data.filter((value) => value.attributes.price > 0),
+          (value) => {
+            return {
+              id: value.id,
+              ...value.attributes,
+            };
+          }
+        );
         dispatch({
           type: GET_PRODUCTS,
           payload: formattedData,
