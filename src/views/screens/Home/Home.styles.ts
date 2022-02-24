@@ -12,5 +12,9 @@ export const StyledCardsWrapper = styled.div`
 `;
 
 export const StyledTitle = styled(Typography)`
-  ${tw`text-[48px] font-head font-medium text-gray-700 mb-[40px]`}
+  ${tw`text-[25px] md:text-[32px] lg:text-[48px] leading-tight font-head font-medium text-gray-700 mb-[40px]`}
+`;
+
+export const StyledEmptyWrapper = styled.div`
+  ${tw`h-[70vh] flex flex-col items-center justify-center`}
 `;

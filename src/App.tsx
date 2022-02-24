@@ -16,7 +16,13 @@ function App() {
   const { ToolbarLayout } = useLayouts();
 
   return (
-    <Suspense fallback={'Loading'}>
+    <Suspense
+      fallback={
+        <div className='w-full h-screen flex items-center justify-center text-xl text-gray-700'>
+          Cargando...
+        </div>
+      }
+    >
       <Provider store={store}>
         <PersistGate persistor={persistor} loading={null}>
           <ToolbarLayout>
