@@ -23,8 +23,12 @@ export const StyledProductCard = styled.div`
   ${tw`w-full p-3 transition-all rounded-xl flex items-center gap-2 hover:shadow-md `}
 `;
 
+export const StyledProductImageWrapper = styled.div`
+  ${tw`rounded-xl shadow-md w-[60px] h-[60px]`}
+`;
+
 export const StyledProductImage = styled.img`
-  ${tw`rounded-xl shadow-md`}
+  ${tw`h-full mx-auto`}
 `;
 
 export const StyledProductTitle = styled(Typography)`

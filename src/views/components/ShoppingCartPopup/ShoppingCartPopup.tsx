@@ -19,6 +19,7 @@ import {
   StyledButtonControl,
   StyledButtonsWrapper,
   StyledButton,
+  StyledProductImageWrapper,
 } from './ShoppingCartPopup.styles';
 
 const ShoppingCartPopup: FC<ShoppingCartPopupProps> = ({
@@ -73,11 +74,13 @@ const ShoppingCartPopup: FC<ShoppingCartPopupProps> = ({
       <StyledTitle>Carrito de compras</StyledTitle>
       {shoppingCart.map((value) => (
         <StyledProductCard key={value.product.id}>
-          <StyledProductImage
-            src={value.product.image_small_url}
-            alt='Product image'
-          />
-          <div>
+          <StyledProductImageWrapper>
+            <StyledProductImage
+              src={value.product.image_small_url}
+              alt='Product image'
+            />
+          </StyledProductImageWrapper>
+          <div className='w-full'>
             <StyledProductTitle variant='caption'>
               {value.product.name}
             </StyledProductTitle>
